@@ -1,0 +1,11 @@
+#15.04
+FROM ssuhss/phpstorm-2016.1.2
+MAINTAINER Michel Ilson da Silva "michel_silva_04@hotmail.com"
+
+
+RUN mkdir /var/www/
+
+USER michel
+VOLUME /home/michel/.PhpStorm2016.1.2
+CMD /opt/phpstorm/bin/phpstorm.sh
+
