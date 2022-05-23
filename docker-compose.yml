@@ -1,13 +1,11 @@
-phpstorm:
-  container_name: phpStorm
-  image: ssuhss/phpstorm-2016.1.2
-  volumes:
-   - /home/ti-dev01/Docker/tk-docker/workdir/www/:/var/www/
-   - /tmp/.X11-unix:/tmp/.X11-unix
-  tty: true
-  environment:
-    - DISPLAY=$DISPLAY
-
-
-
-
+services:
+  phpstorm-x11:
+    image: phpstorm
+    build: .
+    environment:
+      DISPLAY: ${DISPLAY}
+    network_mode: host
+    volumes:
+      - ${XAUTHORITY}:/root/.Xauthority
+      - /tmp/.X11-unix:/tmp.X11-unix
+      - ./projects/:/root/PhpstormProjects/
